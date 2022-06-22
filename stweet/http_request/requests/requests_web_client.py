@@ -50,3 +50,7 @@ class RequestsWebClient(WebClient):
             'http': self.proxy.http_proxy,
             'https': self.proxy.https_proxy,
         })
+
+    def set_proxy(self, proxy_url: str, proxy_port: int):
+        url = proxy_url+":"+str(proxy_port)
+        self.proxy = RequestsWebClientProxyConfig(url, url)
